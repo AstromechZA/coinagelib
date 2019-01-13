@@ -6,7 +6,7 @@ import (
 
 	"github.com/astromechza/coinagelib/internal/decext"
 
-	"github.com/astromechza/coinagelib/assert"
+	"github.com/astromechza/coinagelib/internal/assert"
 
 	"github.com/ericlagergren/decimal"
 )

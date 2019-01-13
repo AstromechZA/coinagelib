@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/astromechza/coinagelib/assert"
+	"github.com/astromechza/coinagelib/internal/assert"
 )
 
 func TestCommodity_IsValid_good(t *testing.T) {
