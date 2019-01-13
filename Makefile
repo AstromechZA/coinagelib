@@ -23,3 +23,27 @@ test:
 		echo; \
 		false; \
 	fi
+
+coverage.out: $(GO_FILES)
+	@echo $(shell date): Analysing test coverage..
+	@go test -cover -covermode=count -coverprofile=$@ ./...
+
+.PHONY: coverage
+coverage: coverage.out
+
+.PHONY: coveralls
+coveralls: coverage.out
+	@if [ -z "$$(which goveralls)" ]; then \
+		echo $$(date): Installing goveralls because we couldnt find it on the path..; \
+		GO111MODULE=off go get github.com/mattn/goveralls; \
+	fi
+	@if [ -z "$(COVERALLS_TOKEN)" ]; then \
+		echo You must set COVERALLS_TOKEN variable!; \
+		false; \
+	fi
+	goveralls -coverprofile=coverage.out -service=circleci -repotoken $(COVERALLS_TOKEN)
+
+.PHONY: clean
+clean: PATTERNS = coverage.out
+clean:
+	@echo $(shell date): Removed $(shell rm -rfv $(PATTERNS) | wc -l) files..
