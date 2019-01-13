@@ -1,7 +1,7 @@
 # coinagelib
 
 [![CircleCI](https://circleci.com/gh/astromechza/coinagelib.svg?style=svg)](https://circleci.com/gh/astromechza/coinagelib)
-[![Coverage Status](https://coveralls.io/repos/github/astromechza/coinagelib/badge.svg?branch=bm_coverage_reporting)](https://coveralls.io/github/astromechza/coinagelib?branch=bm_coverage_reporting)
+[![Coverage Status](https://coveralls.io/repos/github/astromechza/coinagelib/badge.svg)](https://coveralls.io/github/astromechza/coinagelib)
 
 Core coinage libraries and interfaces.
 
