@@ -64,13 +64,3 @@ func TestCommodity_unmarshal(t *testing.T) {
 	assert.Equal(t, err, nil)
 	assert.Equal(t, c.C, Commodity("£"))
 }
-
-func TestCommodity_unmarshal_error(t *testing.T) {
-	var c struct {
-		C Commodity
-	}
-	err := json.Unmarshal([]byte(`{"C": "has space"}`), &c)
-	if assert.ShouldNotEqual(t, err, nil) {
-		assert.Equal(t, err.Error(), "invalid commodity `has space`: contains bad character ` ` at position 3")
-	}
-}
