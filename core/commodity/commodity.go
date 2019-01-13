@@ -1,7 +1,6 @@
 package commodity
 
 import (
-	"encoding/json"
 	"fmt"
 	"regexp"
 	"unicode/utf8"
@@ -33,18 +32,4 @@ func (c Commodity) IsValid() (ok bool, err error) {
 		return false, fmt.Errorf("contains bad character `%s` at position %d", c[m[0]:m[1]], m[0])
 	}
 	return true, nil
-}
-
-// UnmarshalJSON is a custom un-marshalling for commodity that adds validity checks
-func (c *Commodity) UnmarshalJSON(in []byte) error {
-	var s string
-	if err := json.Unmarshal(in, &s); err != nil {
-		return err
-	}
-
-	*c = Commodity(s)
-	if ok, err := c.IsValid(); !ok {
-		return fmt.Errorf("invalid commodity `%s`: %s", s, err)
-	}
-	return nil
 }
