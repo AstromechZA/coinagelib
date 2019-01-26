@@ -5,7 +5,8 @@ jobs:
       - image: golang:1.11
     steps:
       - checkout
-      - run: make test
+      - run: make coverage
+      - run: make
       - run: make coveralls
 workflows:
   version: 2
