@@ -12,4 +12,4 @@ coveralls: artifacts/coverage.out
 		echo You must set COVERALLS_TOKEN variable!; \
 		false; \
 	fi
-	goveralls -coverprofile=coverage.out -service=circleci -repotoken $(COVERALLS_TOKEN)
+	goveralls -coverprofile=$< -service=circleci -repotoken $(COVERALLS_TOKEN)
