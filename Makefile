@@ -1,5 +1,5 @@
 BINARIES :=
-include base.Makefile
+include base.mk
 
 ## Send coveraalls report
 .PHONY: coveralls
